@@ -5,7 +5,8 @@
   "scripts": {
     "start": "webpack-dev-server --inline --progress --port 3000",
     "test": "karma start",
-    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail"
+    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
+    "electron": "rimraf electron/build && webpack --config config/webpack.electron.js --progress --profile --bail && electron electron"
   },
   "license": "MIT",
   "dependencies": {
