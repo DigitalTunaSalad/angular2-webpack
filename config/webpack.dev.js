@@ -13,6 +13,10 @@ module.exports = webpackMerge(commonConfig, {
     devServer: {
         historyApiFallback: true,
         stats: "minimal",
-        contentBase: "/dist"
+        contentBase: "/dist",
+        watchOptions: {
+            aggregateTimeout: 300,
+            poll: 1000
+        }
     }
 });
