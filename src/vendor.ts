@@ -9,5 +9,6 @@ import "@angular/router";
 
 // rxJS
 import "rxjs";
+import "hammerjs";
 // other vendors for example jQuery, Lodash or Bootstrap
 // you can import js, ts, css, sass, ...

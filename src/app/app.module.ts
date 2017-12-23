@@ -2,18 +2,21 @@ import { NgModule } from "@angular/core";
 import { BrowserModule }  from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home";
-
+import { AboutComponent } from "./about";
+import { MatCardModule } from "@angular/material";
 import { routing } from "./app.routes";
 
 @NgModule({
   imports: [
     BrowserModule,
+    MatCardModule,
     routing
   ],
   declarations: [
     // components
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent
   ],
   bootstrap: [ AppComponent ]
 })
