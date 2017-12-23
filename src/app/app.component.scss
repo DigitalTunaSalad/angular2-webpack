@@ -1,0 +1,14 @@
+@import "core/theming/app.scss";
+
+body {
+    margin: 0;  
+    main-app {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 100vh;
+        main {
+            flex: 1;
+        }  
+    }
+}
