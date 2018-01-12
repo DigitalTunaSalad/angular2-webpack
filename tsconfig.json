@@ -18,5 +18,9 @@
       "node",
       "jasmine"
     ]
-  }
+  },
+  "exclude": [
+    "electron",
+    "node_modules"
+  ]
 }

@@ -8,7 +8,7 @@ module.exports = webpackMerge(commonConfig, {
   devtool: "source-map",
 
   output: {
-    path: helpers.root("electron/build"),
+    path: helpers.root("dist/build"),
     publicPath: "/",
     filename: "[name].[hash].js",
     chunkFilename: "[id].[hash].chunk.js"
