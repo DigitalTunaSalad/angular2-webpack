@@ -1,6 +1,12 @@
-var webpack = require("webpack");
-var CopyWebpackPlugin = require("copy-webpack-plugin");
-var HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const helpers = require("./helpers");
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css",
+    disable: process.env.NODE_ENV === "development"
+});
 
 module.exports = {
     entry: {
@@ -25,7 +31,22 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
+                include: helpers.root("src", "app"),
                 loaders: ["raw-loader", "sass-loader"]
+            },
+            {
+                test: /\.scss$/,
+                exclude: helpers.root("src", "app"),
+                include: helpers.root("src", "theming"),
+                loaders: extractSass.extract({
+                    use: [{
+                        loader: "css-loader"
+                    }, {
+                        loader: "sass-loader"
+                    }],
+                    // use style-loader in development
+                    fallback: "style-loader"
+                })
             }
         ]
     },
@@ -42,5 +63,6 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: "src/assets", to: "assets" }
         ]),
+        extractSass
     ]
 };
