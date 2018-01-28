@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "Webpack boilerplate",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --progress --port 3000",
+    "start": "ENV=development webpack-dev-server --hot --inline --progress --port 3000",
     "test": "karma start",
-    "build": "rimraf dist && webpack --config config/webpack.prod.js --progress --profile --bail",
-    "electron": "rimraf dist && webpack --config config/webpack.electron.js --progress --profile --bail && tsc electron/main.ts --outDir dist && cp electron/package.json dist && electron dist"
+    "build": "rimraf dist && ENV=production webpack --config config/webpack.prod.js --progress --profile --bail",
+    "electron": "rimraf dist && ENV=production webpack --config config/webpack.electron.js --progress --profile --bail && tsc electron/main.ts --outDir dist && cp electron/package.json dist && electron dist"    
   },
   "license": "MIT",
   "dependencies": {

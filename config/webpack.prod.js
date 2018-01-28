@@ -2,8 +2,6 @@ const webpack = require("webpack");
 const webpackMerge = require("webpack-merge");
 const commonConfig = require("./webpack.common.js");
 const helpers = require("./helpers");
-const ENV = process.env.NODE_ENV = process.env.ENV = "production";
-
 module.exports = webpackMerge(commonConfig, {
   devtool: "source-map",
 
@@ -23,7 +21,7 @@ module.exports = webpackMerge(commonConfig, {
     }),
     new webpack.DefinePlugin({
       "process.env": {
-        "ENV": JSON.stringify(ENV)
+        "ENV": JSON.stringify(process.env.ENV)
       }
     }),
     new webpack.LoaderOptionsPlugin({
